@@ -1,12 +1,15 @@
 postn = document.querySelectorAll('th')
 banner = document.querySelector('.banner')
 rButton = document.querySelector('button')
+pOneScore = document.querySelector('.player-1-score')
+pTwoScore = document.querySelector('.player-2-score')
 
 let playerOne = 'X'
 let playerTwo = 'O'
 
 rButton.addEventListener('click', () => {
-    location.reload()
+    resetBoard(postn)
+    banner.innerText = ''
 })
 
 let turn = 'player1'
@@ -17,6 +20,8 @@ postn.forEach(post => {
             drawCharacter(e.target, playerOne)
             if (winCheck(postn, playerOne)) {
                 banner.innerText = 'PLAYER 1 WINS🎉🎉'
+                let newScore = increaseScore(parseInt(pOneScore.innerText))
+                pOneScore.innerText = newScore
                 
             }
         }else{
@@ -24,11 +29,17 @@ postn.forEach(post => {
             drawCharacter(e.target, playerTwo)
             if (winCheck(postn, playerTwo)) {
                 banner.innerText = 'PLAYER 2 WINS🎉🎉'
+                let newScore = increaseScore(parseInt(pTwoScore.innerText))
+                pTwoScore.innerText = newScore
                 
             }
         }
     })
 })
+
+const increaseScore = score => {
+    return score + 1
+}
 
 const drawCharacter = (position, character) => {
     let mty = checkEmpty(position.innerText)
@@ -54,4 +65,10 @@ const winCheck = (board, mark) => {
     }else{
         return false
     }
+}
+
+const resetBoard = (board) => {
+    board.forEach(sect => {
+        sect.innerText = ''
+    })
 }
