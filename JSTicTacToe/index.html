@@ -12,7 +12,7 @@
             text-align: center;
         }
         .game-area{
-            margin: 30px auto;
+            margin: 5px auto;
             
         }
         table, th, td {
@@ -26,6 +26,12 @@
             text-align: center;
             font-size: 50px;
         }
+        .scores{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 80px;
+        }
         .banner{
             width: 330px;
             margin: auto;
@@ -34,6 +40,16 @@
     </style>
 </head>
 <body>
+    <div class="scores">
+       <div class="s-p1">
+            <h3>Player 1:</h3>
+            <p class="player-1-score">0</p>
+       </div>
+       <div class="s-p2">
+            <h3>Player 2:</h3>
+            <p class="player-2-score">0</p>
+       </div>
+    </div>
     <div class="game-area">
         <h2>🅾 Tic Tac Toe ❎</h2>
         <table style="width: 330px; height: 210px; margin: auto">
